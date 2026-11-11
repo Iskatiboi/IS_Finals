@@ -1,0 +1,167 @@
+/* style.css - The hand-painted store front look. This file only changes how
+   the app looks. None of the machine learning depends on it. */
+
+:root {
+  --yellow: #ffc61a;
+  --red: #c8202f;
+  --green: #0d6b3f;
+  --blue: #1b4fa0;
+  --ink: #17130f;
+  --enamel: #fffdf2;
+  --poster: "Bowlby One", Impact, "Arial Black", sans-serif;
+}
+
+/* ----- Page frame ----- */
+header[data-testid="stHeader"] { background: transparent; }
+[data-testid="stMain"] { overflow-x: hidden; scrollbar-color: var(--green) #fff1b8; }
+[data-testid="stCaptionContainer"] p { color: #4a4238; }
+[data-testid="stMainBlockContainer"] {
+  max-width: 1180px;
+  padding: 0 clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+.stMarkdown p { max-width: 75ch; }
+::selection { background: var(--yellow); color: var(--ink); }
+input, textarea { caret-color: var(--red); }
+
+/* ----- The painted sign across the top ----- */
+.sign {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: var(--yellow);
+  padding: clamp(1rem, 2.5vw, 2rem) clamp(1rem, 4vw, 2.5rem);
+}
+.sign-board {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(1rem, 2.5vw, 1.75rem) clamp(1rem, 3vw, 2.25rem);
+  border: 5px solid var(--ink);
+  border-radius: 8px;
+}
+.sign h1 { margin: 0; padding: 0; font-family: inherit; }
+.sign-name {
+  display: block;
+  font-family: var(--poster);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6.4vw, 5rem);
+  line-height: 1.05;
+  color: var(--red);
+  text-shadow: 0.05em 0.05em 0 var(--ink);
+  text-wrap: balance;
+}
+.sign-tagline {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: clamp(1.25rem, 2.6vw, 2rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+.sign-team {
+  margin: 0.75rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.sign-team span { display: inline-block; margin-right: 1.25rem; }
+
+/* The diamond wire mesh found on store windows. */
+.grille {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  height: 30px;
+  background-color: var(--ink);
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 9px, #a9b4ac 9px 11px),
+    repeating-linear-gradient(-45deg, transparent 0 9px, #a9b4ac 9px 11px);
+}
+
+/* ----- Tabs: a painted green band under the mesh ----- */
+[data-testid="stTabs"] { margin-top: -1rem; }
+[role="tablist"] {
+  background: var(--green);
+  box-shadow: 0 0 0 100vmax var(--green);
+  clip-path: inset(0 -100vmax);
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+  border: none;
+}
+.react-aria-SelectionIndicator { display: none; }
+[data-testid="stTab"] {
+  height: auto;
+  padding: 0.55rem 0.7rem;
+  border-radius: 4px;
+  transition: background-color 150ms ease-out;
+}
+[data-testid="stTab"] p { font-size: 1rem; font-weight: 700; color: var(--enamel); }
+[data-testid="stTab"]:hover { background: #0a5030; }
+[data-testid="stTab"]:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+[data-testid="stTab"][aria-selected="true"] { background: var(--yellow); }
+[data-testid="stTab"][aria-selected="true"] p { color: var(--ink); }
+
+/* ----- The store question that opens each tab ----- */
+.question {
+  margin-top: 1rem;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border-radius: 8px;
+  color: var(--enamel);
+}
+.question h2 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--poster);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4.4vw, 3.25rem);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.question p { margin: 0.6rem 0 0; font-size: 1.2rem; font-weight: 600; }
+.question.home { background: var(--ink); }
+.question.sales { background: var(--red); }
+.question.products { background: var(--green); }
+.question.restock { background: var(--blue); }
+
+h3 { margin-top: 1.25rem; }
+
+/* ----- Price tags, tables and controls ----- */
+[data-testid="stMetric"] {
+  background: var(--yellow);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+}
+[data-testid="stMetricValue"] { font-family: var(--poster); font-variant-numeric: tabular-nums; }
+[data-testid="stMetricLabel"] p { font-weight: 700; }
+
+[data-testid="stTable"] th { background: var(--ink); color: var(--enamel); }
+[data-testid="stTable"] td, [data-testid="stTable"] th { font-size: 1.05rem; }
+
+button[kind="primaryFormSubmit"], button[kind="primary"] { font-weight: 700; padding-inline: 1.5rem; }
+[data-testid="stExpander"] summary p { font-weight: 700; }
+
+/* ----- The predicted sales price card ----- */
+.price-card {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 1rem 2.25rem 1.25rem;
+  background: var(--yellow);
+  border: 4px solid var(--ink);
+  border-radius: 8px;
+  transform: rotate(-1.5deg);
+  animation: hang-up 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.price-card span { display: block; font-size: 1.25rem; font-weight: 700; color: var(--ink); }
+.price-card strong {
+  display: block;
+  font-family: var(--poster);
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.1;
+  color: var(--red);
+  font-variant-numeric: tabular-nums;
+}
+@keyframes hang-up {
+  from { transform: translateY(-14px) rotate(3deg); }
+  to { transform: translateY(0) rotate(-1.5deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .price-card { animation: none; }
+  [data-testid="stTab"] { transition: none; }
+}

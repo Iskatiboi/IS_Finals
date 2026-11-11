@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T00:00:00Z",
+  "title": "Design System: Sari-Sari Store Manager",
+  "extensions": {
+    "motion": [
+      { "name": "price-card-hang", "value": "450ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The predicted sales card drops into place once." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Store Question",
+      "kind": "custom",
+      "description": "Painted panel opening each tab with the owner's question.",
+      "html": "<div class=\"ds-question\"><h2>How much will we sell tomorrow?</h2><p>Supervised learning.</p></div>",
+      "css": ".ds-question { background: #c8202f; color: #fffdf2; padding: 32px; border-radius: 8px; } .ds-question h2 { margin: 0; font-family: 'Bowlby One', Impact, sans-serif; font-weight: 400; } .ds-question p { margin: 8px 0 0; font-family: Barlow, sans-serif; font-weight: 600; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Tindahan Front",
+    "rules": [
+      { "name": "The One Job Rule", "body": "Each tab owns one painted color for its question. Chart series use only red, blue, and green, in that order.", "section": "colors" },
+      { "name": "The Reading Rule", "body": "Bowlby One is for what is glanced at, never for what is read at length.", "section": "typography" }
+    ],
+    "dos": ["Do open every tab with the store owner's question."],
+    "donts": ["Don't add chart libraries. Charts stay Streamlit built-ins."]
+  }
+}

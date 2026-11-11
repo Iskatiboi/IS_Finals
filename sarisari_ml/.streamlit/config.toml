@@ -1,0 +1,26 @@
+# Streamlit reads this file automatically when you run the app from this folder.
+# It sets the colors and fonts of the whole app.
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#c8202f"
+backgroundColor = "#fffdf2"
+secondaryBackgroundColor = "#fff1b8"
+textColor = "#17130f"
+borderColor = "#17130f"
+showWidgetBorder = true
+baseRadius = "4px"
+baseFontSize = 18
+font = "Barlow:https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap"
+headingFont = "Bowlby One:https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap"
+headingFontWeights = 400
+headingFontSizes = ["3rem", "2.25rem", "1.5rem"]
+chartCategoricalColors = ["#c8202f", "#1b4fa0", "#0d6b3f"]
+dataframeHeaderBackgroundColor = "#fff1b8"
+blueBackgroundColor = "#fff1b8"
+blueTextColor = "#17130f"
+greenBackgroundColor = "#d9f0e1"
+greenTextColor = "#0a5030"
